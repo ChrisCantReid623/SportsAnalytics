@@ -1,0 +1,76 @@
+1. Extract draft stats
+    - Player's prediceted win shares
+    - early Professional Career Win Shares
+
+2. Correlation model (by position)
+    - correlation coefficients
+    - regression
+    - random forrest
+    - gradient descent
+    - predictive continuous variable
+
+
+Model Suggestions:
+
+Here are some potential data models for your project that investigate the correlation between college basketball statistics, combine metrics, and the likelihood of a player earning a rookie extension:
+
+---
+
+### **1. Logistic Regression (Baseline)**
+   - **Use Case:** Predicts the probability of a binary outcome (e.g., earning a rookie extension or not).
+   - **Features:**
+     - College stats: Points per game, assists, rebounds, shooting percentages, turnovers, etc.
+     - Combine metrics: Lane agility, sprint speed, vertical jump, bench press, etc.
+   - **Why It Works:** Provides a simple interpretable baseline model to identify which features (metrics or stats) have the highest influence on success.
+
+---
+
+### **2. Random Forest (Feature Importance)**
+   - **Use Case:** Non-linear model that handles interactions between variables well and highlights feature importance.
+   - **Features:** Same as logistic regression but with flexibility to include more nuanced data like:
+     - Contextual stats (e.g., per-40-minute production, usage rates).
+     - Draft position or team data as potential predictors.
+   - **Why It Works:** Helps to determine which variables have the greatest predictive power without assuming linear relationships.
+
+---
+
+### **3. Gradient Boosted Trees (XGBoost, LightGBM, etc.)**
+   - **Use Case:** For highly imbalanced datasets, gradient boosting models are robust and often outperform other models for binary classification tasks.
+   - **Features:** Same as above, with added ability to tune hyperparameters for performance.
+   - **Why It Works:** Captures subtle patterns and interactions in the data that might otherwise be missed.
+
+---
+
+### **4. Neural Networks**
+   - **Use Case:** If you have a large dataset and want to model complex interactions between college stats and combine metrics.
+   - **Features:**
+     - All available player metrics and stats.
+     - Encode categorical variables (e.g., positions, schools, draft year) using one-hot encoding.
+   - **Why It Works:** Neural networks can capture non-linear and high-dimensional relationships, but they require significant data for training.
+
+---
+
+### **5. Cluster Analysis (Exploratory)**
+   - **Use Case:** Group players based on similarities in their stats and metrics to identify patterns (e.g., clusters of players likely to earn extensions).
+   - **Features:**
+     - Combine college performance stats and athletic metrics.
+     - Include positional data to group by roles.
+   - **Why It Works:** Unsupervised learning can reveal hidden structures in the data that may inform feature engineering or model design.
+
+---
+
+### **6. Ensemble Models**
+   - **Use Case:** Combine predictions from logistic regression, random forests, and gradient boosting to improve robustness.
+   - **Features:** Same as above.
+   - **Why It Works:** By leveraging the strengths of multiple models, ensemble methods often improve prediction accuracy.
+
+---
+
+### **Key Considerations:**
+1. **Handling Imbalanced Data:** Since only a small fraction of players earn rookie extensions, consider oversampling, undersampling, or using techniques like SMOTE.
+2. **Position-Specific Models:** Build separate models for guards, forwards, and centers to account for differences in skillsets and athletic requirements.
+3. **Threshold Sensitivity Analysis:** Experiment with different contract value thresholds for defining "success" (e.g., $5M vs. $10M).
+4. **Validation Strategy:** Use cross-validation to ensure the model generalizes well across different subsets of data.
+
+---
+
